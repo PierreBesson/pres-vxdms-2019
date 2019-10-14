@@ -1,0 +1,383 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Kubernetes Native JHipster Microservices</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/star.css">
+		<link rel="stylesheet" href="css/material-icons.css">
+
+		<!-- <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css"> -->
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background="#3E8ACC" data-transition="none" data-background-transition="none">
+					<div style="font-family:Arial, Helvetica, sans-serif;font-size:120%;">Kubernetes Native JHipster Microservices</div>
+					<img src="img/family4.svg" style="border:none;box-shadow:none;width:27%;background-color: #3E8ACC;"/>
+					<hr class="star-light" style="line-height:0.5">
+					<div style="font-family:Pacifico;font-size:80%;">Pierre Besson</div>
+					<div style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size:60%;">Voxxed Days Microservice 2019</div>
+					<img src="img/liquidshare.svg" width="25%" style="border:none;box-shadow:none;background-color:#3e8acc;"/>
+				</section>
+				<section>
+					<section>
+						<h3>Who am I ?</h3>
+						<hr class="star-primary">
+						<div style="float:left;width:50%;font-size:80%">
+							<img src="img/vxd2018.jpg" width="350" style="box-shadow:none;border:none"/>
+							<h3>Pierre Besson</h3>
+							<p><a href="http://twitter.com/pibesson"><i class="fa fa-twitter"></i>
+	@pibesson</a></p>
+							<p><a href="mailto:pierre.besson@jhipster.tech">pierre.besson@jhipster.tech</a></p>
+						</div>
+						<br>
+						<br>
+						<div style="float:right;width:50%;font-size: 65%">
+							<ul>
+								<li>Site Reliability Engineer at Liquidshare</li>
+								<li>Returning Voxxed Days Microservice speaker</li>
+								<li>FullStack & DevOps</li>
+								<li>JHipster core team member</li>
+						</div>
+					</section>
+					<section style="font-size:80%; "">
+						<img src="img/liquidshare.svg" alt="" style="border:none;box-shadow:none" width="25%">
+						<p>«LiquidShare is a fintech startup founded in Paris by a consortium of major European financial institutions to improve the settlement process for equities traded on electronic exchanges using blockchain and cloud native technologies.»</p>
+						<p style="font-size:80%" class="fragment">
+							Our tech stack:
+							<ul style="font-size:80%" class="fragment">
+								<li>Spring Boot based <b>microservice architecture</b> communicating using Kafka & GRPC</li>
+								<li><b>Private Permissioned</b> blockchain based on Hyperledger Besu (Java based Ethereum client)</li>
+								<li><b>Fully automated</b> infrastructure provisioning and CD for everything</li>
+								<li>Deployed in <b>Kubernetes</b> (AWS & GCP)</li>
+							</ul>
+						</p>
+					</section>
+					<section>
+						<h3>JHipster</h3>
+						<div style="font-size: 200%;color:lightskyblue">
+							<img src="img/logo/jhipster_family_member_1_head.svg" width="20%" style="border:none;box-shadow:none;">
+							<img src="img/logo/jhipster_family_member_3_head.svg" width="15%" style="border:none;box-shadow:none;">
+							<img src="img/logo/jhipster_family_member_2_head.svg" width="15%" style="border:none;box-shadow:none;">
+							<img src="img/logo/jhipster_family_member_0_head.svg" width="20%" style="border:none;box-shadow:none;">
+						</div>
+						<hr class="star-primary">
+						<ul style="font-size: 90%;list-style-type: none;">
+							<li class="fragment">🏗️ Provide <strong>scaffolding</strong> for a Full Stack application</li>
+							<li class="fragment">💠 Implement the <strong>best practices</strong> of each technology</strong></li>
+							<li class="fragment">🔧 Maximize development <strong>productivity</strong> with tooling</li>
+							<li class="fragment">📈 <strong>Production ready</strong> (maintainable, secure, scalable)</li>
+							<li class="fragment">👾 Supports <strong>monoliths <i class="fa fa-cube"></i></strong> and <strong>microservices <i class="fa fa-cubes"></i></strong></li>
+						</ul>
+					</section>
+					<section>
+					<h3>JHipster for Microservices</h3>
+					<hr class="star-primary">
+					<br>
+					<ul style="font-size: 70%;list-style-type:none">
+						<li class="fragment"><i class="fa fa-cubes"></i> <strong> Microservice</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spring Boot service with REST API + DB Access</li>
+						<li class="fragment"><i class="fa fa-television"></i> <strong>JHipster Registry</strong> &nbsp;&nbsp;&nbsp;Applications dashboard with management screens</li>
+						<li class="fragment">⛩️ <strong>JHipster Gateway</strong> &nbsp;&nbsp;API management and aggregated Swagger docs</li>
+						<li class="fragment">🔁 <strong>CI-CD</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pipelines for 🤵 Jenkins, 👷 Travis, <i class="fa fa-gitlab"></i> Gitlab</li>
+						<li class="fragment">🖇️ <strong>Local Integration</strong> &nbsp;&nbsp;&nbsp;&nbsp;🐋Docker-compose</li>
+						<li class="fragment">🚀 <strong>Deployment</strong>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;☸️ Kubernetes / Helm</li>
+					</ul>
+					</section>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Kubernetes</h1>
+					<h4>AKA Docker in Production</h4>
+					<img src="img/k8s.svg" width="40%" style="border:none">
+					<!-- not simply a container runtime
+					container do not magically scale when they are in kubernetes
+					nodes don't magically create themselves
+					application can be restarted at any time
+					apps that persist state of any kind are not very suited to kubernetes
+					you need a completely different mode of thinking
+					-->
+				</section>
+				<section>
+					<h3>What is Kubernetes ?</h3>
+					<hr class="star-primary">
+					<p class="fragment">Kubernetes is a container orchestrator</p>
+					<ul class="fragment" style="font-size: 70%">
+						<li>Schedule containers on multiple hosts</li><!--following requirements (cpu, memory, ...)	-->
+						<li class="fragment">It understands <b>only</b> containers not applications</li>
+						<li class="fragment">Virtual networking: 1 Pod = 1 IP + internal DNS</li>
+						<li class="fragment">Load balancing: Service Object (basic round robin)</li>
+						<li class="fragment">Configuration: ConfigMap</li>
+						<li class="fragment">Storage: attached volumes</li>
+					</ul>
+				</section>
+				<section>
+					<h3>How does Kubernetes work ?</h3>
+					<p class="fragment" style="font-size: 80%">Internally, everything in Kubernetes works thanks to Controllers</p>
+					<p class="fragment">
+						<b style="font-style:italic;font-size: 70%;">Controller:</b>
+						<quote style="font-style:italic;font-size: 70%;  text-align: justify;">Service in which an <b style="color:blue">infinite loop</b> regulate the state of the system to realize <b style="color:red">desired state</b></quote>
+					</p>
+					<ul style="font-size: 70%;margin:0px">
+						<li class="fragment" >Kubernetes state: <b>highly consistent</b> thanks to ETCD</li>
+						<li class="fragment" >Can receive <b>CRUD</b> operations</li>
+						<li class="fragment" >Kubernetes <b>Resources</b> defined from YAML files or programmatically</li>
+						<li class="fragment" >Example resources:
+								<ul style="font-size: 90%;margin-left:20%">
+									<li class="fragment" ><b>Pod:</b> a set of containers on one host</li>
+									<li class="fragment" ><b>Replica Set:</b> a set of identical Pods</li>
+									<li class="fragment" ><b>Deployment:</b> the state used to do rolling upgrades</li>
+									<li class="fragment" ><b>Service:</b> a network service to expose a set of Pods</li>
+									<li class="fragment" ><b>Ingress:</b> an external route to the cluster</li>
+								</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Kubernetes: An extensible platform</h4>
+					<p class="fragment">
+						<b style="font-style:italic;font-size: 90%;">Operator:</b>
+						<quote style="font-style:italic;font-size: 90%;  text-align: justify;">Software extensions to Kubernetes based on <b style="color:blue">custom Kubernetes resources</b></quote>		
+					</p>
+					<p class="fragment">
+						<b style="font-style:italic;font-size: 90%;">Service Mesh:</b>
+						<quote style="font-style:italic;font-size: 90%;  text-align: justify;">A set of infrastucture services that implement <b style="color: red;">microservices patterns</b></quote>
+					</p>
+				</section>
+				<!-- <section>
+					<h3>Practical concerns when deploying to Kubernetes</h3>
+					<p>
+						<ul style="list-style-type: none;font-size: 80%">
+							<li class="fragment">Container image safety (vunerability scan)</li>
+							<li class="fragment">Image tagging and versioning to a docker registry</li>
+							<li class="fragment">Managing Kubernetes manifests (Helm vs Kustomize)</li>
+							<li class="fragment">Maintaining environment specific configuration (GitOps tools: Flux, Helmfile, ...)</li>
+							<li class="fragment">Setting the correct JVM parameters</li>
+							<li class="fragment">Init containers</li>
+							<li class="fragment">Liveness and Readiness checks</li>
+							<li class="fragment">Limits (cpu, mem)</li>
+							<li class="fragment">Node affinities</li>
+							<li class="fragment">Autoscaling on metric (HorizontalPodAutoscaling)</li>
+						</ul>
+					</p>
+				</section> -->
+			</section>
+			<section>
+				<section>
+					<h4>Microservices architecture requirements</h4>
+					<img src="img/Microservice-requirements.png" width="60%" style="border:none">
+				</section>
+				<section>
+					<h4>The need for a "microservice platform"</h4>
+					<div style="font-size:70%">JHipster supports 2 microservice platforms</div>
+					<!-- <p>2 very different solutions to the same problems</p> -->
+					<br>
+					<table class="tab">
+						<thead>
+							<tr>
+								<th class="tab"></th>
+								<th class="tab"><i class="fa fa-leaf"></i> Spring Cloud</th>
+								<th class="tab">⛵ Istio</th>
+							</tr>
+						</thead>
+						<tbody>
+						<tr>
+							 <td class="tab"><b>Type</b></td>
+							 <td class="tab">Framework</td>
+							 <td class="tab">Infrastructure</td>
+						</tr>
+						<tr>
+							 <td class="tab"><b>Implementation</b></td>
+							 <td class="tab">Embedded libraries</td>
+							 <td class="tab">Service mesh through sidecar proxies</td>
+						</tr>
+						<tr>
+							<td class="tab"><b>Language</b></td>
+							<td class="tab">Java only</td>
+							<td class="tab">Polyglot</td>
+						</tr>
+						<tr>
+							 <td class="tab"><b>Communication</b></td>
+							 <td class="tab">Direct service to service calls</td>
+							 <td class="tab">Service calls intermediated by proxy servers</td>
+						</tr>
+						<tr>
+							 <td class="tab"><b>Deployment</b></td>
+							 <td class="tab">Can be deployed anywhere</td>
+							 <td class="tab">Can only be deployed in Kubernetes </td>
+						</tr>
+
+						<tr>
+							 <td class="tab"><b>Overhead</b></td>
+							 <td class="tab">Development complexity</td>
+							 <td class="tab">Operational complexity</td>
+						</tr>
+						<tr>
+							 <td class="tab"><b>Troubleshooting</b></td>
+							 <td class="tab">Can be debugged on local machine</td>
+							 <td class="tab">Can only be debugged in the cluster</td>
+						</tr>
+						</tbody>
+					</table>
+				</section>
+				<!-- <section>
+					<h3>Spring Cloud stack</h3>
+					<hr class="star-primary">
+					<p>
+					<p style="font-size: 80%" class="fragment">Mature and successfuly used in production at dozens of companies</p>
+					<li class="fragment">Supported by JHipster since ~2016 with many success stories</li>
+						<ul style="list-style-type: none;font-size: 80%">
+							<li class="fragment"><b><i class="fa fa-cloud"></i> Service discovery:</b> Eureka/Consul</li>
+							<li class="fragment"><b><i class="fa fa-sliders"></i> Centralized configuration:</b> Spring Cloud Config</li>
+							<li class="fragment"><b>⛩️ API Gateway:</b> Zuul (Netflix) or SC Gateway</li>
+							<li class="fragment"><b>🔀 Client side Load balancing</b> Ribbon (Netflix) or SC LoadBalancer</li>
+							<li class="fragment"><b>⚡ Circuit Breaker: </b> Hystrix or SC CircuitBreaker</li>
+						</ul>
+					<p style="font-size: 59%;color:red;" class="fragment">Even though Netflix component are now in maintenance mode, they are still a good choice !</p>
+					</p>
+				</section>
+				<section>
+					<h4>JHipster Spring Cloud Architecture</h4>
+					<img src="img/microservices_architecture_3.png" alt="" width="90%" style="border:none;box-shadow:none">
+					<a href="http://www.jhipster.tech/microservices-architecture/" style="font-size:60%">jhipster.tech/microservices-architecture/</a>
+				</section> -->
+				<section>
+					<h3>Istio (redo this slide)</h3>
+					<hr class="star-primary">
+					<ul style="font-size: 70%;ist-style-type: none;">
+					<!-- <li class="fragment">A <i>Service Mesh</i> to implement microservice patterns <b>in the infrastructure</b></li> -->
+					<li class="fragment">Supported by JHipster since ~2018 but still a <b>WIP</b></li>
+						<ul style="list-style-type: none;">
+							<li class="fragment"><b><i class="fa fa-cloud"></i> Service discovery:</b> Kubernetes services</li>
+							<li class="fragment"><b><i class="fa fa-sliders"></i> Centralized configuration:</b> Kubernetes ConfigMaps</li>
+							<li class="fragment"><b>⛩️ API Gateway:</b> Istio Gateway and VirtualService</li>
+							<li class="fragment"><b>🔀 Load balancing, ⚡ Circuit Breaker, Retries and more</b></li>
+							<!-- <li class="fragment">+ Additional capabilities: Canary testing, Traffic observability</li> -->
+						</ul>
+					</ul>
+					<figure class="fragment" >
+						<img style="border:none;box-shadow:none;margin:0;padding:0" width="35%" src="img/LoadBalancing.svg" alt="">
+						<figcaption style="font-size: 60%"><a href="https://istio.io/docs/concepts/traffic-management/">istio.io/docs/concepts/traffic-management</a></caption>
+					</figure>
+				</section>
+				<!-- <section>
+					<h4>Summary</h3>
+					<hr class="star-primary">
+					<table  style="font-size:60%;
+					border-collapse: separate;
+					border: 1px solid black;
+					border-bottom: 1px solid black">
+						<thead>
+							<tr>
+								<th></th>
+								<th><i class="fa fa-leaf"></i> Spring Cloud</th>
+								<th>⛵ Istio</th>
+							</tr>
+						</thead>
+						<tbody>
+						<tr>
+							 <td class="tab"><b>Service Discovery</b></td>
+							 <td class="tab">Dedicated service (Eureka/Consul)</td>
+							 <td class="tab">Provided by the platform (Kubernetes)</td>
+						</tr>
+						<tr>
+							 <td class="tab"><b>Configuration</b></td>
+							 <td class="tab">Dedicated service (Spring Config Server)</td>
+							 <td class="tab">Provided by platform (Kubernetes ConfigMaps)</td>
+						</tr>
+						<tr>
+							 <td class="tab"><b>Load Balancing</b></td>
+							 <td class="tab">In the app (Ribbon)</td>
+							 <td class="tab">In the sidecar (Envoy)</td>
+						</tr>
+						<tr>
+							 <td class="tab"><b>Circuit Breaker</b></td>
+							 <td class="tab">In the app (Hystrix)</td>
+							 <td class="tab">In the sidecar (Envoy)</td>
+						</tr>
+						<tr>
+							 <td class="tab"><b>API Gateway</b></td>
+							 <td class="tab">Dedicated service (Zuul)</td>
+							 <td class="tab">Istio Gateway (Envoy)</td>
+						</tr>
+					</tbody>
+					</table>
+				</section> -->
+			</section>
+			<section>
+				<section>
+					<h2>Demo</h2>
+					<span style="color:red;font-size:300%">🎆</span>
+					<h3 style="font-size:70%">Kubernetes native JHipster</h3>
+					<!-- First show jdl,
+						 show spring boot ms file structure,
+						 show docker-compose,
+						 show kube deployment files
+						 apply
+						 show: show pods in one right pane
+						 show: show events in one right pane
+						 show: get deployment oyaml
+						 edit: replica count on depl
+						 test the app, create entity on 2 ms
+						 open kiali show traffic
+						 jhipster operator 
+						-->
+				</section>
+				<section>
+					<h2>Questions ?</h2>
+					<p><a href="http://twitter.com/pibesson"><i class="fa fa-twitter"></i>
+@pibesson</a></p>
+					<p><a href="mailto:pierre.besson@jhipster.tech"><i class="fa fa-envelope"></i> pierre.besson@jhipster.tech</a></p>
+					<div id="qrcode"></div>
+					<p style="font-size: 70%;">Slides available online at <a href="https://pierre-besson.fr/pres-vxdms-2019/">pierre-besson.fr/pres-vxdms-2019</a></p>
+					<p style="font-size: 70%;"><i class="fa fa-github"></i> Code : <a href="https://github.com/PierreBesson/demo-vxdms-2019">github.com/PierreBesson/demo-vxdms-2019</a>
+				</section>
+			</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="js/qrcode.js"></script>
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: false,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+
+			var typeNumber = 4;
+			var errorCorrectionLevel = 'L';
+			var qr = qrcode(typeNumber, errorCorrectionLevel);
+			qr.addData('https://pierre-besson.fr/pres-vxdms-2019/');
+			qr.make();
+			document.getElementById('qrcode').innerHTML = qr.createSvgTag(6);
+		</script>
+	</body>
+</html>
