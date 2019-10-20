@@ -12,7 +12,7 @@
 		<link rel="stylesheet" href="css/star.css">
 		<link rel="stylesheet" href="css/material-icons.css">
 
-		<!-- <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css"> -->
+		<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -30,12 +30,12 @@
 		<div class="reveal">
 			<div class="slides">
 				<section data-background="#3E8ACC" data-transition="none" data-background-transition="none">
-					<div style="font-family:Arial, Helvetica, sans-serif;font-size:120%;">Kubernetes Native JHipster Microservices</div>
+					<div style="font-family: Pacifico, Arial, Helvetica, sans-serif;font-size:130%;">Kubernetes native JHipster microservices</div>
 					<img src="img/family4.svg" style="border:none;box-shadow:none;width:27%;background-color: #3E8ACC;"/>
-					<hr class="star-light" style="line-height:0.5">
-					<div style="font-family:Pacifico;font-size:80%;">Pierre Besson</div>
-					<div style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size:60%;">Voxxed Days Microservice 2019</div>
-					<img src="img/liquidshare.svg" width="25%" style="border:none;box-shadow:none;background-color:#3e8acc;"/>
+					<!-- <hr class="star-light" style="line-height:0.5"> -->
+					<div style="font-family:Pacifico;font-size:120%;">Pierre Besson</div>
+					<img src="img/vxdms2019.png" width="60%" style="border:none;box-shadow:none;background-color:#3E8ACC;"/>
+					<!-- <img src="img/liquidshare.svg" width="46%" style="border:none;box-shadow:none;background-color:white;"/> -->
 				</section>
 				<section>
 					<section>
@@ -59,7 +59,7 @@
 						</div>
 					</section>
 					<section style="font-size:75%; "">
-						<img src="img/liquidshare.svg" alt="" style="border:none;box-shadow:none" width="25%">
+						<img src="img/liquidshare.svg" alt="" style="border:none;box-shadow:none" width="40%">
 						<p style="font-size:85%">«Liquidshare is a fintech startup founded in Paris by a consortium of major European financial institutions to improve the settlement process for equities traded on electronic exchanges using blockchain and cloud native technologies.»</p>
 						<p style="font-size:75%" class="fragment">
 							Our tech stack:
@@ -93,7 +93,7 @@
 					<br>
 					<ul style="font-size: 70%;list-style-type:none">
 						<li class="fragment"><i class="fa fa-cubes"></i> <strong> Microservice</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Spring Boot service with REST API + DB Access</li>
-						<li class="fragment"><i class="fa fa-television"></i> <strong>JHipster Registry</strong> &nbsp;&nbsp;&nbsp;&nbsp;Applications dashboard with management screens</li>
+						<!-- <li class="fragment"><i class="fa fa-television"></i> <strong>JHipster Registry</strong> &nbsp;&nbsp;&nbsp;&nbsp;Applications dashboard with management screens</li> -->
 						<li class="fragment">⛩️ <strong>JHipster Gateway</strong> &nbsp;&nbsp;&nbsp;&nbsp;API management and aggregated Swagger docs</li>
 						<li class="fragment">🔁 <strong>CI-CD</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pipelines for 🤵 Jenkins, 👷 Travis, <i class="fa fa-gitlab"></i> Gitlab</li>
 						<li class="fragment">🖇️ <strong>Local Integration</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🐋Docker-compose</li>
@@ -106,7 +106,7 @@
 				<section>
 					<h1>Kubernetes</h1>
 					<h4>AKA Docker in Production</h4>
-					<img src="img/k8s.svg" width="40%" style="border:none">
+					<img src="img/k8s.svg" width="40%" style="border:none;box-shadow: none;">
 					<!-- not simply a container runtime
 					container do not magically scale when they are in kubernetes
 					nodes don't magically create themselves
@@ -123,7 +123,7 @@
 						<li>Schedule containers on multiple hosts</li><!--following requirements (cpu, memory, ...)	-->
 						<li class="fragment">It understands <b>only</b> containers not applications</li>
 						<li class="fragment"><b>Virtual networking:</b> 1 Pod = 1 IP + internal DNS</li>
-						<li class="fragment"><b>Load balancing:</b> Service Object (basic round robin)</li>
+						<li class="fragment"><b>Load balancing:</b> Service Object (<s>round robin</s> random selection)</li>
 						<li class="fragment"><b>Configuration:</b> ConfigMap</li>
 						<li class="fragment"><b>Storage:</b> Attached volumes</li>  
 					</ul>
@@ -158,7 +158,7 @@
 					</p>
 					<p class="fragment">
 						<b style="font-style:italic;font-size: 90%;">Service Mesh:</b>
-						<quote style="font-style:italic;font-size: 90%;  text-align: justify;">A set of infrastucture services that implement <b style="color: red;">microservices patterns</b></quote>
+						<quote style="font-style:italic;font-size: 90%;  text-align: justify;">A set of infrastructure services that implement <b style="color: red;">microservices patterns</b></quote>
 					</p>
 				</section>
 				<!-- <section>
@@ -181,8 +181,8 @@
 			</section>
 			<section>
 				<section>
-					<h4>Microservices architecture requirements</h4>
-					<img src="img/Microservice-requirements.png" width="60%" style="border:none">
+					<!-- <h4>Microservices architecture requirements</h4> -->
+					<img src="img/Microservice-requirements.png" width="60%" style="border:none;box-shadow: none;">
 				</section>
 				<section>
 					<h4>The need for a "microservice platform"</h4>
